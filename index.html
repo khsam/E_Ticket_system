@@ -242,9 +242,9 @@
         <section class="selectSit">
 
           <div>
-            <div class="grid grid-cols-5  bg-slate-500">
+            <div class="grid grid-cols-5 ">
 
-              <div class="col-span-3 p-[32px] bg-orange-200">
+              <div class="col-span-3 p-[32px]">
                 <div>
                   <p class="font-semibold">Select You Seat</p>
                 </div>
@@ -253,6 +253,10 @@
                   <div class="flex">             
                     <img src="images/seat-gray.png" alt=""> 
                     <p class="pl-2">Available</p>
+                  </div>
+                  <div class="flex">             
+                    <img src="images/seat-gray.png" alt=""> 
+                    <p class="pl-2 text-gray-800 font-bold">Booked</p>
                   </div>
                   <div class="flex">             
                     <img src="images/seat-green-filled.png" alt=""> 
@@ -367,14 +371,43 @@
               </div>
 
 
-              <div class="col-span-2 p-[32px] bg-rose-200">
+              <div class="col-span-2 p-[32px]">
                 <div class="flex">
                   <!-- <div class="h-[400px] w-[0.5px] border-[1px] border-dashed border-gray-400"></div> -->
-                  <div class="ml-4 border-l-[1px] border-dashed border-gray-400" >
-                    <div>
-                      <p class="font-semibold">Select You Seat</p>
+                  <div class=" border-l-[1px] border-dashed border-gray-400 ml-[-30px]" >
+                    <div class="ml-5">
+                      <div>
+                        <p class="font-semibold">Select You Seat</p>
+                      </div>
+                      <div class="border-[1px] border-dashed border-gray-400 my-5"></div>
+                      <div class="bg-base-200 pl-5">
+
+                        <div class="flex justify-around">
+                          <p class="w-24">Seat</p>
+                          <p class="w-24">Class</p>
+                          <p class="w-24">Price</p>
+                        </div>
+                        <div class="border-[1px] border-dashed border-gray-400 my-2"></div>
+                        <div id="idSeatDetails">
+                          <div class="flex justify-around">
+                            <p class="w-24">c2</p>
+                            <p class="w-24">economic</p>
+                            <p class="w-24">550</p>
+                          </div>
+                        </div>
+                       
+                        
+                        <div class="border-[1px] border-solid border-gray-400 my-2"></div>
+                        <div class="flex justify-between">
+                          <p >Total Price</p>
+                          <p class="pr-[20%]">BDT <span id="idTotalAmount">1000</span></p>
+                        </div>
+
+                      </div>
+                      
+
                     </div>
-                    <div class="border-[1px] border-dashed border-gray-400 my-5"></div>
+                    
 
                   </div>
                   
