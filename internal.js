@@ -21,9 +21,16 @@ function SelectSit(id)
         { 
             SeatRemovalAndTotal(id, selectedSeat, reportSeatId);       
         }
-    } else
-    { 
-        document.getElementById('errorMsg').innerText = 'ERROR : Maximum 4 tickets Allowed.';
+    }
+    else
+    {        
+        if (seatArray.indexOf(id) == -1)
+        {
+            document.getElementById('errorMsg').innerText = 'ERROR : Maximum 4 tickets Allowed.';
+        } else
+        { 
+            SeatRemovalAndTotal(id, selectedSeat, reportSeatId);   
+        }
     }   
 }
 
@@ -51,8 +58,12 @@ function SeatSelectionAndTotal(id, selectedSeat, reportSeatId) {
                 `<p class="w-24">${id}</p>
                             <p class="w-24">economic</p>
                             <p class="w-24">550</p>`;
+    
+    //update seat No on the report
+    document.getElementById('idTotalSeat').innerText = seatArray.length;
 
-
+    // call UpdateTotal() function to update the total amount
+    UpdateTotal();
 }
 
 
@@ -65,8 +76,18 @@ function SeatRemovalAndTotal(id, selectedSeat, reportSeatId)
     selectedSeat.classList.add('bg-base-200');
 // remove the report line from the right report
     document.getElementById(`${reportSeatId}`).innerHTML = '';
-
     // remove the seat from the Array
     seatArray.splice(getSitIndex, 1);
+     //update seat No on the report
+    document.getElementById('idTotalSeat').innerText = seatArray.length;
+    
+     // call UpdateTotal() function to update the total amount
+     UpdateTotal();
+}
 
+function UpdateTotal() { 
+    let totalElement = document.getElementById('idTotalAmount');
+    let total = seatArray.length * 550;
+
+    totalElement.innerText = total;
 }
