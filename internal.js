@@ -57,7 +57,7 @@ function SeatSelectionAndTotal(id, selectedSeat, reportSeatId) {
             document.getElementById(`${reportSeatId}`).innerHTML =
                 `<p class="w-24">${id}</p>
                             <p class="w-24">economic</p>
-                            <p class="w-24">550</p>`;
+                            <p class="w-24 pl-5">550</p>`;
     
     //update seat No on the report
     document.getElementById('idTotalSeat').innerText = seatArray.length;
@@ -87,7 +87,21 @@ function SeatRemovalAndTotal(id, selectedSeat, reportSeatId)
 
 function UpdateTotal() { 
     let totalElement = document.getElementById('idTotalAmount');
+    let totalGrand = document.getElementById('idTotalGrand');
     let total = seatArray.length * 550;
 
     totalElement.innerText = total;
+    totalGrand.innerText = total;
+
+    // enable input field and button if more than 1 seat selected
+    if (seatArray.length > 1)
+    {
+        document.getElementById('idCouponInput').removeAttribute('disabled');
+        document.getElementById('idCouponBtn').removeAttribute('disabled');
+    }
+    else
+    { 
+        document.getElementById('idCouponInput').setAttribute('disabled','disabled');
+        document.getElementById('idCouponBtn').setAttribute('disabled','disabled');
+    }
 }

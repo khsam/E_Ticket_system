@@ -372,7 +372,7 @@
 
 
               <div class="col-span-2 p-[32px]">
-                <div class="flex">
+                <div class="">
                   <!-- <div class="h-[400px] w-[0.5px] border-[1px] border-dashed border-gray-400"></div> -->
                   <div class=" border-l-[1px] border-dashed border-gray-400 ml-[-30px]" >
                     <div class="ml-5">
@@ -380,30 +380,58 @@
                         <p class="font-semibold">Select You Seat</p>
                       </div>
                       <div class="border-[1px] border-dashed border-gray-400 my-5"></div>
-                      <div class="bg-base-200 pl-5">
-
+                      <div class="bg-base-200 pl-5 py-5">
                         <div class="flex justify-around">
                           <p class="w-24">Seat <span id="idTotalSeat" class="pl-1 w-4 inline-block bg-siteColor text-white text-xs ">0</span></p>
                           <p class="w-24">Class</p>
-                          <p class="w-24">Price</p>
+                          <p class="w-24 pl-5">Price</p>
                         </div>
                         <div class="border-[1px] border-dashed border-gray-400 my-2"></div>
                         <div id="idSeatDetails">                         
-                        </div>
-                       
+                        </div>             
                         
                         <div class="border-[1px] border-solid border-gray-400 my-2"></div>
                         <div id="errorMsg" class="text-red-700"></div>
                         <div class="flex justify-between">
                           <p >Total Price</p>
-                          <p class="pr-[20%]">BDT <span id="idTotalAmount">0</span></p>
+                          <p class="pr-[16%]">BDT <span id="idTotalAmount">0</span></p>
                         </div>
 
+                        <div class="bg-white my-7 mr-8 rounded-lg">
+                          <div>
+                            <input disabled id="idCouponInput" class="rounded-md" type="text" placeholder="Have Any Coupon?">
+                            <button disabled id="idCouponBtn" class="btn border-transparent bg-siteColor md:ml-[0px] xl:ml-[130px] text-white">Apply</button>
+                          </div>
+                        </div>
+                        <div class="flex justify-between">
+                          <p >Grand Total</p>
+                          <p class="pr-[16%]">BDT <span id="idTotalGrand">0</span></p>
+                        </div>
                       </div>
-                      
+                      <div>
+                        <div><p class="font-semibold text-base mt-4 mb-3">Passenger Name*</p></div>
+                        <div>
+                          <input required class="border border-solid rounded-md w-[100%] h-10" type="text" id="idName" placeholder="Enter your name">
+                        </div>
+                      </div>
+                      <div>
+                        <div><p class="font-semibold text-base mt-4 mb-3">Phone Number*</p></div>
+                        <div>
+                          <input required class="border border-solid rounded-md w-[100%] h-10" type="text" id="idPhone" placeholder="Enter your phone number">
+                        </div>
+                      </div>
+                      <div>
+                        <div><p class="font-semibold text-base mt-4 mb-3">Email Id*</p></div>
+                        <div>
+                          <input required class="border border-solid rounded-md w-[100%] h-10" type="text" id="idEmail" placeholder="Enter your email id">
+                        </div>
+                      </div>
+                     
+
 
                     </div>
-                    
+                   
+
 
                   </div>
                   
