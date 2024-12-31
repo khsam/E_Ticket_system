@@ -164,13 +164,29 @@ coupenApplyButton.addEventListener('click', function ()
 document.getElementById('idBtnNext').addEventListener('click', function (e)
 { 
     document.getElementById('errorMsgNext').innerText = '';
+    let totalSitLeft = parseInt(document.getElementById('totalSeat').innerText);
     
     let name = document.getElementById('idName').value;
     let phone = document.getElementById('idPhone').value;
 
     if (name != '' && phone != '')
     {
+        seatArray.map(x => {      
+            document.getElementById(`${x}`).setAttribute('disabled', 'disabled');
+            console.log('inside map array');    
+        });
+
+        // update total seat
+        totalSitLeft = totalSitLeft - seatArray.length;
+        document.getElementById('totalSeat').innerText = totalSitLeft;
+//show modal
         document.getElementById('confirmModal').showModal();
+        // make array empty
+        seatArray.length > 0 ? seatArray = [] : seatArray;
+
+        // make name and phone field empty.
+        document.getElementById('idName').value = '';
+        document.getElementById('idPhone').value = '';
         
     } else { 
         document.getElementById('errorMsgNext').innerText = 'Name and Phone are mandatory.'
