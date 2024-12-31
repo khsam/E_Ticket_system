@@ -374,7 +374,7 @@
               <div class="col-span-2 p-[32px]">
                 <div class="">
                   <!-- <div class="h-[400px] w-[0.5px] border-[1px] border-dashed border-gray-400"></div> -->
-                  <div class=" border-l-[1px] border-dashed border-gray-400 ml-[-30px]" >
+                  <div class=" border-l-[1px] border-dashed border-gray-400 ml-[-30px] md:h-[850px] lg:h-[1000px]" >
                     <div class="ml-5">
                       <div>
                         <p class="font-semibold">Select You Seat</p>
@@ -386,7 +386,7 @@
                           <p class="w-24">Class</p>
                           <p class="w-24 pl-5">Price</p>
                         </div>
-                        <div class="border-[1px] border-dashed border-gray-400 my-2"></div>
+                        <div class="border-[1px] border-dashed border-gray-400 my-3"></div>
                         <div id="idSeatDetails">                         
                         </div>             
                         
@@ -396,13 +396,16 @@
                           <p >Total Price</p>
                           <p class="pr-[16%]">BDT <span id="idTotalAmount">0</span></p>
                         </div>
+                        
+                        
 
-                        <div class="bg-white my-7 mr-8 rounded-lg">
+                        <div class="bg-white mt-7 mr-8 rounded-lg">
                           <div>
                             <input disabled id="idCouponInput" class="rounded-md" type="text" placeholder="Have Any Coupon?">
                             <button disabled id="idCouponBtn" class="btn border-transparent bg-siteColor md:ml-[0px] xl:ml-[130px] text-white">Apply</button>
                           </div>
                         </div>
+                        <div id="errorMsgCopn" class="text-red-700 my-5"></div>
                         <div class="flex justify-between">
                           <p >Grand Total</p>
                           <p class="pr-[16%]">BDT <span id="idTotalGrand">0</span></p>
@@ -421,28 +424,58 @@
                         </div>
                       </div>
                       <div>
-                        <div><p class="font-semibold text-base mt-4 mb-3">Email Id*</p></div>
+                        <div><p class="font-semibold text-base mt-4 mb-3">Email Id</p></div>
                         <div>
-                          <input required class="border border-solid rounded-md w-[100%] h-10" type="text" id="idEmail" placeholder="Enter your email id">
+                          <input class="border border-solid rounded-md w-[100%] h-10" type="text" id="idEmail" placeholder="Enter your email id">
                         </div>
                       </div>
-                     
-
+                      <div>  
+                        <button disabled id="idBtnNext" class="btn border-transparent bg-siteColor w-[100%] mt-10">Next</button>
+                        <div id="errorMsgNext" class="text-red-700 mb-10"></div>
+                      </div>
+                      <div>
+                        <a href="#" class="text-sm ml-8 underline decoration-1 ">Terms and Conditions</a>
+                        <a href="#" class="text-sm ml-32 underline decoration-1 ">Cancellation Policy</a>
+                      </div>
 
                     </div>
-                   
-
-
                   </div>
-                  
                 </div>
-                
-
               </div>
 
             </div>
           </div>
 
+        </section>
+
+        <section class="modalSection">
+          <div>
+            <dialog id="confirmModal" class="modal">
+              <div class="modal-box">
+                <div>
+                  <img class="m-auto" src="images/success.png" alt="">
+                </div>
+                <div class="mb-4">
+                  <p class=" text-2xl font-bold text-siteColor text-center">Success</p>
+                </div>
+                <div>
+                  <h3 class="text-base font-semibold text-center">Thank you for Booking Our Bus Seats. </h3>
+                  <h3 class="text-base font-semibold text-center"> 
+                      We are working hard to find the best service and deals for you.
+                    </h3>
+                </div>
+               
+                <p class="py-4 text-center">Shortly you will find a confirmation in your email.</p>
+                <div class="modal-action">
+                  <form method="dialog" class="m-auto">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <!-- <button class="btn border-transparent bg-siteColor">Buy Tickets</button> -->
+                    <button class="btn border-transparent bg-siteColor w-40">Continue</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          </div>
         </section>
 
     </section>

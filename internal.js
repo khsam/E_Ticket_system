@@ -85,7 +85,8 @@ function SeatRemovalAndTotal(id, selectedSeat, reportSeatId)
      UpdateTotal();
 }
 
-function UpdateTotal() { 
+function UpdateTotal()
+{ 
     let totalElement = document.getElementById('idTotalAmount');
     let totalGrand = document.getElementById('idTotalGrand');
     let total = seatArray.length * 550;
@@ -93,7 +94,7 @@ function UpdateTotal() {
     totalElement.innerText = total;
     totalGrand.innerText = total;
 
-    // enable input field and button if more than 1 seat selected
+    // enable input coupon field and button if more than 1 seat selected
     if (seatArray.length > 1)
     {
         document.getElementById('idCouponInput').removeAttribute('disabled');
@@ -104,4 +105,78 @@ function UpdateTotal() {
         document.getElementById('idCouponInput').setAttribute('disabled','disabled');
         document.getElementById('idCouponBtn').setAttribute('disabled','disabled');
     }
+    // enable Next button if any seat selected
+    seatArray.length > 0 ? document.getElementById('idBtnNext').removeAttribute('disabled') : document.getElementById('idBtnNext').setAttribute('disabled', 'disabled');
+    
+    // always remove the coupon error message.
+    document.getElementById('errorMsgCopn').innerText = "";
+    // remove the coupon if new button clicked.
+    document.getElementById('idCouponInput').value = '';
 }
+
+// this Section is for the Coupon.
+// remove the error message if we start writing in the coupon input 
+let couponDataField = document.getElementById('idCouponInput');
+couponDataField.addEventListener('keyup', function (e)
+{ 
+    let data = e.target.value;
+    data.length > 0 ? document.getElementById('errorMsgCopn').innerText = "" :0;
+});
+
+// this Section is for the Coupon validation.
+let coupenApplyButton = document.getElementById('idCouponBtn');
+coupenApplyButton.addEventListener('click', function ()
+{ 
+    let inputCoupon = document.getElementById('idCouponInput').value;
+    if (inputCoupon == '')
+    {
+        document.getElementById('errorMsgCopn').innerText = "Coupon Field cann't be empty";
+    }
+    else
+    { 
+        inputCoupon = inputCoupon.toLowerCase();
+        
+        if (inputCoupon == 'couple20' && seatArray.length == 2) {
+            let totalAmount = parseInt(document.getElementById('idTotalAmount').innerText);
+            let newGrandAmount = Math.round(totalAmount - ((totalAmount * 20) / 100));
+            document.getElementById('idTotalGrand').innerText = newGrandAmount;
+        }      
+        else if (inputCoupon == 'couple20' && seatArray.length > 2)
+        { 
+            document.getElementById('errorMsgCopn').innerText = "couple20 is for only 2 tickets. Please use other coupon";
+        }
+        else if (inputCoupon == 'new15')
+        {
+                let totalAmount = parseInt(document.getElementById('idTotalAmount').innerText);
+                let newGrandAmount = Math.round(totalAmount - ((totalAmount * 15) / 100));
+                document.getElementById('idTotalGrand').innerText = newGrandAmount;
+        }
+        else
+        { 
+            document.getElementById('errorMsgCopn').innerText = "Not a valid coupon.";
+        }
+        
+    }
+    
+})
+
+// click function on NEXT button
+document.getElementById('idBtnNext').addEventListener('click', function (e)
+{ 
+    document.getElementById('errorMsgNext').innerText = '';
+    
+    let name = document.getElementById('idName').value;
+    let phone = document.getElementById('idPhone').value;
+
+    if (name != '' && phone != '')
+    {
+        document.getElementById('confirmModal').showModal();
+        
+    } else { 
+        document.getElementById('errorMsgNext').innerText = 'Name and Phone are mandatory.'
+    }
+    
+})
+
+
+
